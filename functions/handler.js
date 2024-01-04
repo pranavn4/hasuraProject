@@ -15,7 +15,7 @@ export const handler = async (event, context) => {
       body: JSON.stringify({
         query: `
           query CheckUser($username: String!, $password: String!) {
-            users(where: { username: { _eq: $username }, password: { _eq: $password } }) {
+            user(where: { username: { _eq: $username }, password: { _eq: $password } }) {
               id
             }
           }
@@ -30,7 +30,8 @@ export const handler = async (event, context) => {
     const hasuraData = await hasuraResponse.json();
 
     // Check if the user exists in the Hasura database
-    if (hasuraData.data && hasuraData.data.users.length > 0) {
+    if (hasuraData.data && hasuraData.data.user.length > 0) {
+      // User found, return access token
       return {
         statusCode: 200,
         headers: {
