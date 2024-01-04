@@ -15,10 +15,10 @@ export const handler = async (event, context) => {
             body: JSON.stringify({
                 query: `
           query CheckUser($username: String!, $password: String!) {
-            users(where: { username: { _eq: $username }, password: { _eq: $password } }) {
-              id
-            }
-          }
+  users(where: {username: {_eq: $username}, _and: {password: {_eq: $password}}}) {
+    user_id
+  }
+}
         `,
                 variables: {
                     username,
