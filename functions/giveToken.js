@@ -68,7 +68,7 @@ export const handler = async (event, context) => {
                 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
                 'Access-Control-Allow-Headers': 'Content-Type, Authorization',
             },
-            body: JSON.stringify({ message: 'Unauthorized - Invalid username or password' }),
+            body: JSON.stringify({ message: 'internal server error' }),
         };
     }
 };
