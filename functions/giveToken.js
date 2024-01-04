@@ -40,7 +40,7 @@ export const handler = async (event, context) => {
                     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
                     'Access-Control-Allow-Headers': 'Content-Type, Authorization',
                 },
-                body: JSON.stringify({ accessToken: 'abcderfh23242dfdfdfr32dnc3' }),
+                body: JSON.stringify({ message: 'Authorization successful', accessToken: 'abcderfh23242dfdfdfr32dnc3' }),
             };
         } else {
             // User not found, return unauthorized error
@@ -52,7 +52,7 @@ export const handler = async (event, context) => {
                     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
                     'Access-Control-Allow-Headers': 'Content-Type, Authorization',
                 },
-                body: JSON.stringify({ error: 'Unauthorized - Invalid username or password' }),
+                body: JSON.stringify({ message: 'Unauthorized - Invalid username or password' }),
             };
         }
     } catch (error) {
@@ -68,7 +68,7 @@ export const handler = async (event, context) => {
                 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
                 'Access-Control-Allow-Headers': 'Content-Type, Authorization',
             },
-            body: JSON.stringify({ error: 'Internal Server Error' }),
+            body: JSON.stringify({ message: 'Unauthorized - Invalid username or password' }),
         };
     }
 };
