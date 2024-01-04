@@ -29,8 +29,7 @@ export const handler = async (event, context) => {
 
         const hasuraData = await hasuraResponse.json();
 
-        // Check if the user exists in the Hasura database
-        if (hasuraData.data && hasuraData.data.user.length > 0) {
+        if (hasuraData.data && hasuraData.data.users.length > 0) {
             // User found, return access token
             return {
                 statusCode: 200,
