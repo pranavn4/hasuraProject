@@ -10,12 +10,12 @@ export const handler = async (event, context) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: 'JxrntEzMopbKXNyc3dTNFfKrfaFN0Uq4Gxx4dOrEyBiet801qpfN3KKjnhsGyyEB', // Replace with your Hasura admin token
+                Authorization: 'JxrntEzMopbKXNyc3dTNFfKrfaFN0Uq4Gxx4dOrEyBiet801qpfN3KKjnhsGyyEB',
             },
             body: JSON.stringify({
                 query: `
           query CheckUser($username: String!, $password: String!) {
-            user(where: { username: { _eq: $username }, password: { _eq: $password } }) {
+            users(where: { username: { _eq: $username }, password: { _eq: $password } }) {
               id
             }
           }
