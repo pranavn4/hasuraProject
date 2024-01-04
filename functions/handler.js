@@ -15,7 +15,7 @@ export const handler = async (event, context) => {
       body: JSON.stringify({
         query: `
           query CheckUser($username: String!, $password: String!) {
-            user(where: { username: { _eq: $username }, password: { _eq: $password } }) {
+            users(where: { username: { _eq: $username }, password: { _eq: $password } }) {
               id
             }
           }
@@ -30,8 +30,7 @@ export const handler = async (event, context) => {
     const hasuraData = await hasuraResponse.json();
 
     // Check if the user exists in the Hasura database
-    if (hasuraData.data && hasuraData.data.user.length > 0) {
-      // User found, return access token
+    if (hasuraData.data && hasuraData.data.users.length > 0) {
       return {
         statusCode: 200,
         headers: {
@@ -40,7 +39,7 @@ export const handler = async (event, context) => {
           'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
           'Access-Control-Allow-Headers': 'Content-Type, Authorization',
         },
-        body: JSON.stringify({ accessToken: 'abcderfh23242dfdfdfr32dnc3' }),
+        body: JSON.stringify({ accessToken: 'its my token' }), // Replace with your actual access token
       };
     } else {
       // User not found, return unauthorized error
