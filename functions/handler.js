@@ -2,7 +2,7 @@
 
 export const handler = async (event, context) => {
   //
-  // const { username, password } = JSON.parse(event.body);
+  const { username, password } = JSON.parse(event.body);
 
   try {
 
