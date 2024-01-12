@@ -1,7 +1,6 @@
 # package directories
-/node_modules
-
+node_modules
 .serverless
-
 .env
 .netlify
+jspm_packages

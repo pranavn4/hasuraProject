@@ -1,0 +1,46 @@
+org: pranav4
+app: lambda-hasura
+service: new-hasura-project
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+
+functions:
+  handler:
+    handler: functions/src/handlers/giveToken.authHandler
+    events:
+      - httpApi:
+          path: /handler
+          method: post
+  event:
+    handler: functions/events/events.eventHandler
+    events:
+      - httpApi:
+          path: /event
+          method: post
+  createPostHandler:
+    handler : functions/src/handlers/createPostHandler.createPostHandler
+    events:
+      - httpApi:
+          path: /asyncpost
+          method: post
+  sendSMS:
+    handler: functions/src/handlers/smsHandler.sendWelcomeHandler
+    events:
+      - httpApi:
+          path: /sendsms
+          method: post
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    host: localhost
+    port: 3000
+
+
+
+#  8UG7AHTZG8EEC7R54HGVUABW

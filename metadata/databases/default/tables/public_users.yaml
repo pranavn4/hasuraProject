@@ -1,0 +1,41 @@
+table:
+  name: users
+  schema: public
+array_relationships:
+  - name: comments
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: comments
+          schema: public
+  - name: posts
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: posts
+          schema: public
+event_triggers:
+  - name: new_trigger
+    definition:
+      delete:
+        columns: '*'
+      enable_manual: true
+      update:
+        columns: '*'
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook: http://myserverlesscontainer:3000/event
+  - name: send_sms
+    definition:
+      enable_manual: false
+      insert:
+        columns: '*'
+    retry_conf:
+      interval_sec: 30
+      num_retries: 1
+      timeout_sec: 180
+    webhook: http://myserverlesscontainer:3000/sendsms

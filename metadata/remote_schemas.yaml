@@ -1,0 +1,21 @@
+- name: integration
+  definition:
+    url: https://mutual-haddock-59.hasura.app/v1/graphql
+    timeout_seconds: 60
+    customization: {}
+    headers:
+      - name: x-hasura-admin-secret
+        value: JxrntEzMopbKXNyc3dTNFfKrfaFN0Uq4Gxx4dOrEyBiet801qpfN3KKjnhsGyyEB
+  comment: new schema
+  remote_relationships:
+    - relationships:
+        - definition:
+            to_source:
+              field_mapping: {}
+              relationship_type: array
+              source: default
+              table:
+                name: users
+                schema: public
+          name: adress_of_user
+      type_name: address

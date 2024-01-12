@@ -1,0 +1,26 @@
+type Mutation {
+  addPost(
+    title: String!
+    content: String!
+    userId: Int!
+  ): PostOutput
+}
+
+type Query {
+  authorizeUser(
+    username: String!
+  ): AuthorizeUserOutput
+}
+
+input AuthorizeUserInput {
+  username: String!
+}
+
+type AuthorizeUserOutput {
+  token: String
+}
+
+type PostOutput {
+  postId: Int!
+}
+

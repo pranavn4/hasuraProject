@@ -1,0 +1,17 @@
+actions:
+  - name: addPost
+    definition:
+      kind: asynchronous
+      handler: http://myserverlesscontainer:3000/asyncpost
+  - name: authorizeUser
+    definition:
+      kind: ""
+      handler: http://myserverlesscontainer:3000/handler
+custom_types:
+  enums: []
+  input_objects:
+    - name: AuthorizeUserInput
+  objects:
+    - name: AuthorizeUserOutput
+    - name: PostOutput
+  scalars: []
