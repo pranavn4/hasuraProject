@@ -11,7 +11,8 @@
     - relationships:
         - definition:
             to_source:
-              field_mapping: {}
+              field_mapping:
+                user_id: id
               relationship_type: array
               source: default
               table:

@@ -1,1 +1,8 @@
-[]
+- name: send_update
+  webhook: http://myserverlesscontainer:3000/sendupdate
+  schedule: 0 0 * * *
+  include_in_metadata: true
+  payload:
+    number: "6361135685"
+    username: JohnDoe
+  comment: sending some updates
