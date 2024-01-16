@@ -32,7 +32,12 @@ functions:
       - httpApi:
           path: /sendsms
           method: post
-
+  sendUpdate:
+    handler: functions/src/handlers/cronTrigger.sendUpdate
+    events:
+      - httpApi:
+          path: /sendupdate
+          method: post
 plugins:
   - serverless-offline
 
